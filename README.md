@@ -14,7 +14,7 @@ It helps to handle a HTTP request or response as an object.
 
 ## Installation
 
-### [CocoaPods](https://cocoapods.org)
+### CocoaPods
 
 ```ruby
 pod 'SwiftHTTPClient'
