@@ -6,11 +6,11 @@ Pod::Spec.new do |spec|
                         SwiftHTTPClient is a swift HTTP client library.
                         It helps to handle a HTTP request or response as an object.
                       DESC
-  spec.homepage     = "https://www.github.com/geonu1109/SwiftHTTPClient"
+  spec.homepage     = "https://github.com/geonu1109/SwiftHTTPClient"
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   spec.license      = "MIT"
   spec.author       = { "Geonu Jeon" => "geonu1109@gmail.com" }
   spec.platform     = :ios, "13.0"
-  spec.source       = { :git => "https://www.github.com/geonu1109/SwiftHTTPClient.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/geonu1109/SwiftHTTPClient.git", :tag => "#{spec.version}" }
   spec.source_files = "SwiftHTTPClient/**/*.swift"
 end
