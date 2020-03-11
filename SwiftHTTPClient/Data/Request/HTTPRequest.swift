@@ -11,13 +11,18 @@ import Foundation
 public protocol HTTPRequest {
     associatedtype Response: HTTPResponse
     
-    var uri: URL { get }
+    var host: URL { get }
+    var path: String { get }
     var method: HTTPRequestMethod { get }
     var headerFields: [HTTPHeaderField] { get }
     var body: Data? { get }
 }
 
 public extension HTTPRequest {
+    var uri: URL {
+        return self.host.appendingPathComponent(self.path)
+    }
+    
     func asAnyHTTPRequest() -> AnyHTTPRequest<Response> {
         return .init(self)
     }
