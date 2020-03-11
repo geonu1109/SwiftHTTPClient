@@ -20,7 +20,17 @@ public struct URI: CustomStringConvertible {
         public var port: Int?
         
         public var description: String {
-            return "\(userinfo.map { "\($0)@" } ?? "")\(host)\(port.map { ":\($0)" } ?? "")"
+            var result: String = ""
+            
+            if let userinfo = self.userinfo {
+                result += userinfo + "@"
+            }
+            result += self.host
+            if let port = self.port {
+                result += ":" + port.description
+            }
+            
+            return result
         }
         
         public init(userinfo: String? = nil, host: String, port: Int? = nil) {
