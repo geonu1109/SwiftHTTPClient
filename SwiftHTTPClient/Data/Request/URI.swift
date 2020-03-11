@@ -23,7 +23,7 @@ public struct URI: CustomStringConvertible {
             return "\(userinfo.map { "\($0)@" } ?? "")\(host)\(port.map { ":\($0)" } ?? "")"
         }
         
-        init(userinfo: String? = nil, host: String, port: Int? = nil) {
+        public init(userinfo: String? = nil, host: String, port: Int? = nil) {
             self.userinfo = userinfo
             self.host = host
             self.port = port
@@ -75,14 +75,14 @@ public struct URI: CustomStringConvertible {
         return urlComponents.url
     }
     
-    init(scheme: Scheme, authority: Authority, path: String, query: Query? = nil) {
+    public init(scheme: Scheme, authority: Authority, path: String, query: Query? = nil) {
         self.scheme = scheme
         self.authority = authority
         self.path = path
         self.query = query
     }
     
-    init(scheme: Scheme, host: String, path: String, query: Query? = nil) {
+    public init(scheme: Scheme, host: String, path: String, query: Query? = nil) {
         self.scheme = scheme
         self.authority = .init(host: host)
         self.path = path
