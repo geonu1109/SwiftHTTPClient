@@ -24,22 +24,22 @@ public class HTTPClient: HTTPClientType {
     
     public func submit<Request: HTTPRequest>(_ request: Request) -> AnyPublisher<Request.Response, Error> {
         let urlRequest: URLRequest = self.createURLRequest(from: request)
-        let publisher = self.urlSession
-            .dataTaskPublisher(for: urlRequest)
-            .retry(self.retryCount)
-            .tryMap { (data, urlResponse) -> Request.Response in
-                guard let httpURLResponse: HTTPURLResponse = urlResponse as? HTTPURLResponse else {
-                    throw URLError(.cannotParseResponse)
-                }
-                let headerFields: [HTTPHeaderField] = httpURLResponse.allHeaderFields.compactMap { (name, value) in
-                    guard let name: String = name as? String, let value: String = value as? String else {
-                        return nil
-                    }
-                    return .init(name: name, value: value)
-                }
-                return .init(statusCode: httpURLResponse.statusCode, headerFields: headerFields, body: data)
+        
+        return self.dataTaskPublisher(for: urlRequest)
+            .tryMap {
+                try self.createResponse(Request.Response.self, from: $0)
             }
-        return AnyPublisher(publisher)
+            .eraseToAnyPublisher()
+    }
+    
+    public func get<Response: HTTPResponse>(_ type: Response.Type, from url: URL) -> AnyPublisher<Response, Error> {
+        let request: AnyHTTPRequest<Response> = .init(url: url)
+        
+        return self.submit(request)
+    }
+    
+    private func dataTaskPublisher(for urlRequest: URLRequest) -> URLSession.DataTaskPublisher {
+        return self.urlSession.dataTaskPublisher(for: urlRequest)
     }
     
     private func createURLRequest<Request: HTTPRequest>(from httpRequest: Request) -> URLRequest {
@@ -54,5 +54,18 @@ public class HTTPClient: HTTPClientType {
         urlRequest.httpBody = httpRequest.body
         
         return urlRequest
+    }
+    
+    private func createResponse<Response: HTTPResponse>(_ type: Response.Type, from output: URLSession.DataTaskPublisher.Output) throws -> Response {
+        guard let httpURLResponse: HTTPURLResponse = output.response as? HTTPURLResponse else {
+            throw URLError(.cannotParseResponse)
+        }
+        let headerFields: [HTTPHeaderField] = httpURLResponse.allHeaderFields.compactMap { (name, value) in
+            guard let name: String = name as? String, let value: String = value as? String else {
+                return nil
+            }
+            return .init(name: name, value: value)
+        }
+        return .init(statusCode: httpURLResponse.statusCode, headerFields: headerFields, body: output.data)
     }
 }
