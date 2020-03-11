@@ -19,7 +19,20 @@
 		79534CC7240E15360074147F /* HTTPRequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79534CC6240E15360074147F /* HTTPRequestMethod.swift */; };
 		79534CC9240E226D0074147F /* HTTPHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79534CC8240E226D0074147F /* HTTPHeaderField.swift */; };
 		79534CCB240E22BF0074147F /* AnyHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79534CCA240E22BF0074147F /* AnyHTTPRequest.swift */; };
+		798B84242418E0F1002CFEDE /* SwiftHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798B84232418E0F1002CFEDE /* SwiftHTTPClientTests.swift */; };
+		798B84262418E0F1002CFEDE /* libSwiftHTTPClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79534C9E240DF9D80074147F /* libSwiftHTTPClient.a */; };
+		798B842D2419188D002CFEDE /* URI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798B842C2419188D002CFEDE /* URI.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		798B84272418E0F1002CFEDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79534C96240DF9D80074147F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79534C9D240DF9D80074147F;
+			remoteInfo = SwiftHTTPClient;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		79534C9C240DF9D80074147F /* CopyFiles */ = {
@@ -50,6 +63,10 @@
 		79534CC6240E15360074147F /* HTTPRequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestMethod.swift; sourceTree = "<group>"; };
 		79534CC8240E226D0074147F /* HTTPHeaderField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaderField.swift; sourceTree = "<group>"; };
 		79534CCA240E22BF0074147F /* AnyHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyHTTPRequest.swift; sourceTree = "<group>"; };
+		798B84212418E0F1002CFEDE /* SwiftHTTPClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftHTTPClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		798B84232418E0F1002CFEDE /* SwiftHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHTTPClientTests.swift; sourceTree = "<group>"; };
+		798B84252418E0F1002CFEDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		798B842C2419188D002CFEDE /* URI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +74,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		798B841E2418E0F1002CFEDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				798B84262418E0F1002CFEDE /* libSwiftHTTPClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +95,7 @@
 				792A817C2410B8BB0089FD3F /* LICENSE */,
 				792A817B2410B5DD0089FD3F /* SwiftHTTPClient.podspec */,
 				79534CA0240DF9D80074147F /* SwiftHTTPClient */,
+				798B84222418E0F1002CFEDE /* SwiftHTTPClientTests */,
 				79534C9F240DF9D80074147F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				79534C9E240DF9D80074147F /* libSwiftHTTPClient.a */,
+				798B84212418E0F1002CFEDE /* SwiftHTTPClientTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +121,7 @@
 		79534CBC240DFC2F0074147F /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				798B842C2419188D002CFEDE /* URI.swift */,
 				79534CC6240E15360074147F /* HTTPRequestMethod.swift */,
 				79534CBA240DFAE00074147F /* HTTPRequest.swift */,
 				791D7966240E324D003671D4 /* JSONRequest.swift */,
@@ -133,6 +161,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		798B84222418E0F1002CFEDE /* SwiftHTTPClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				798B84232418E0F1002CFEDE /* SwiftHTTPClientTests.swift */,
+				798B84252418E0F1002CFEDE /* Info.plist */,
+			);
+			path = SwiftHTTPClientTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +190,24 @@
 			productReference = 79534C9E240DF9D80074147F /* libSwiftHTTPClient.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		798B84202418E0F1002CFEDE /* SwiftHTTPClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 798B84292418E0F1002CFEDE /* Build configuration list for PBXNativeTarget "SwiftHTTPClientTests" */;
+			buildPhases = (
+				798B841D2418E0F1002CFEDE /* Sources */,
+				798B841E2418E0F1002CFEDE /* Frameworks */,
+				798B841F2418E0F1002CFEDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				798B84282418E0F1002CFEDE /* PBXTargetDependency */,
+			);
+			name = SwiftHTTPClientTests;
+			productName = SwiftHTTPClientTests;
+			productReference = 798B84212418E0F1002CFEDE /* SwiftHTTPClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -166,6 +221,9 @@
 					79534C9D240DF9D80074147F = {
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
+					};
+					798B84202418E0F1002CFEDE = {
+						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
@@ -183,9 +241,20 @@
 			projectRoot = "";
 			targets = (
 				79534C9D240DF9D80074147F /* SwiftHTTPClient */,
+				798B84202418E0F1002CFEDE /* SwiftHTTPClientTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		798B841F2418E0F1002CFEDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79534C9A240DF9D80074147F /* Sources */ = {
@@ -194,6 +263,7 @@
 			files = (
 				791D7969240E330E003671D4 /* JSONResponse.swift in Sources */,
 				79534CC3240E101B0074147F /* HTTPResponseStatus.swift in Sources */,
+				798B842D2419188D002CFEDE /* URI.swift in Sources */,
 				791D7971240E34A5003671D4 /* HTTPClient.swift in Sources */,
 				79534CC9240E226D0074147F /* HTTPHeaderField.swift in Sources */,
 				79534CC1240DFC5E0074147F /* AnyHTTPResponse.swift in Sources */,
@@ -207,7 +277,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		798B841D2418E0F1002CFEDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				798B84242418E0F1002CFEDE /* SwiftHTTPClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		798B84282418E0F1002CFEDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79534C9D240DF9D80074147F /* SwiftHTTPClient */;
+			targetProxy = 798B84272418E0F1002CFEDE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		79534CA3240DF9D80074147F /* Debug */ = {
@@ -363,6 +449,44 @@
 			};
 			name = Release;
 		};
+		798B842A2418E0F1002CFEDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7KK3FT686N;
+				INFOPLIST_FILE = SwiftHTTPClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.geonu1109.SwiftHTTPClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		798B842B2418E0F1002CFEDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7KK3FT686N;
+				INFOPLIST_FILE = SwiftHTTPClientTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.geonu1109.SwiftHTTPClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -380,6 +504,15 @@
 			buildConfigurations = (
 				79534CA6240DF9D80074147F /* Debug */,
 				79534CA7240DF9D80074147F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		798B84292418E0F1002CFEDE /* Build configuration list for PBXNativeTarget "SwiftHTTPClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				798B842A2418E0F1002CFEDE /* Debug */,
+				798B842B2418E0F1002CFEDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

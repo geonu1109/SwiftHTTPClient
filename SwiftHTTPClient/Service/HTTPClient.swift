@@ -43,7 +43,7 @@ public class HTTPClient: HTTPClientType {
     }
     
     private func createURLRequest<Request: HTTPRequest>(from httpRequest: Request) -> URLRequest {
-        var urlRequest: URLRequest = .init(url: httpRequest.uri)
+        var urlRequest: URLRequest = .init(url: httpRequest.url)
         
         urlRequest.httpMethod = httpRequest.method.description
         
