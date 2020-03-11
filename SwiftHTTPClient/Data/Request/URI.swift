@@ -58,6 +58,10 @@ public struct URI: CustomStringConvertible {
     public var path: String
     public var query: Query?
     
+    public var host: String {
+        return self.authority.host
+    }
+    
     public var description: String {
         return "\(self.scheme.rawValue)://\(self.authority.description)\(self.path)\(self.query.map { "?\($0)" } ?? "")"
     }
