@@ -38,8 +38,10 @@ public class HTTPClient: HTTPClientType {
         return self.submit(request)
     }
     
-    private func dataTaskPublisher(for urlRequest: URLRequest) -> URLSession.DataTaskPublisher {
+    private func dataTaskPublisher(for urlRequest: URLRequest) -> AnyPublisher<(data: Data, response: URLResponse), URLError> {
         return self.urlSession.dataTaskPublisher(for: urlRequest)
+            .retry(self.retryCount)
+            .eraseToAnyPublisher()
     }
     
     private func createURLRequest<Request: HTTPRequest>(from httpRequest: Request) -> URLRequest {
