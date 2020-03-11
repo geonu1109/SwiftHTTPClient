@@ -9,14 +9,14 @@
 import Foundation
 
 public protocol JSONRequest: HTTPRequest {
-    associatedtype Object: Encodable
+    associatedtype BodyObject: Encodable
     
-    var object: Object? { get }
+    var bodyObject: BodyObject? { get }
 }
 
 public extension JSONRequest {
     var body: Data? {
-        return self.object.flatMap { (object) in
+        return self.bodyObject.flatMap { (object) in
             return try? JSONEncoder().encode(object)
         }
     }

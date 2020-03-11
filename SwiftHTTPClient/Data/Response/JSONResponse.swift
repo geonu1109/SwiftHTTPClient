@@ -9,13 +9,13 @@
 import Foundation
 
 public protocol JSONResponse: HTTPResponse {
-    associatedtype Object: Decodable
+    associatedtype BodyObject: Decodable
 }
 
 public extension JSONResponse {
-    var object: Object? {
+    var bodyObject: BodyObject? {
         return self.body.flatMap { (body) in
-            return try? JSONDecoder().decode(Object.self, from: body)
+            return try? JSONDecoder().decode(BodyObject.self, from: body)
         }
     }
 }

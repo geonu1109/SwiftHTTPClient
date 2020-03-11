@@ -39,7 +39,7 @@
 		791D796C240E33C7003671D4 /* HTTPClientType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientType.swift; sourceTree = "<group>"; };
 		791D7970240E34A5003671D4 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		792A817924109B900089FD3F /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
-		792A817B2410B5DD0089FD3F /* SwiftHTTPClient.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwiftHTTPClient.podspec; sourceTree = SOURCE_ROOT; };
+		792A817B2410B5DD0089FD3F /* SwiftHTTPClient.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftHTTPClient.podspec; sourceTree = SOURCE_ROOT; };
 		792A817C2410B8BB0089FD3F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		792A817D2410BBE30089FD3F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		79534C9E240DF9D80074147F /* libSwiftHTTPClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftHTTPClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
