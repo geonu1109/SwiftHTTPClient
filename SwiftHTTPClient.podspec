@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = "SwiftHTTPClient"
-  spec.version          = "0.0.1"
+  spec.version          = "0.1.0"
   spec.swift_version    = '5.0'
   spec.summary          = "SwiftHTTPClient is a swift HTTP client library."
   spec.description      = <<-DESC
