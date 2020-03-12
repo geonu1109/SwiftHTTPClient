@@ -13,4 +13,5 @@ public protocol HTTPClientType {
     init(timeoutInterval: TimeInterval, retryCount: Int)
     
     func submit<Request: HTTPRequest>(_ request: Request) -> AnyPublisher<Request.Response, Error>
+    func get<Response: HTTPResponse>(_ type: Response.Type, from url: URL) -> AnyPublisher<Response, Error>
 }
