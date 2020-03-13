@@ -53,7 +53,9 @@ public class HTTPClient: HTTPClientType {
             urlRequest.addValue(headerField.value, forHTTPHeaderField: headerField.name)
         }
         
-        urlRequest.httpBody = httpRequest.body
+        if httpRequest.method != .get && httpRequest.method != .head {
+            urlRequest.httpBody = httpRequest.body
+        }
         
         return urlRequest
     }
