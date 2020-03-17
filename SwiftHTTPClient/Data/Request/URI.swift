@@ -73,7 +73,7 @@ public struct URI: CustomStringConvertible {
     }
     
     public var description: String {
-        return "\(self.scheme.rawValue)://\(self.authority.description)\(self.path)\(self.query.map { "?\($0)" } ?? "")"
+        return "\(self.scheme.rawValue)://\(self.authority.description)\(self.path)\(self.query.map { "?\($0.string)" } ?? "")"
     }
     
     public var url: URL? {

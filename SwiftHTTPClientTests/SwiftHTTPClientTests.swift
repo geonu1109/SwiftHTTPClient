@@ -33,6 +33,7 @@ class SwiftHTTPClientTests: XCTestCase {
         
         let request: AnyHTTPRequest<AnyHTTPResponse> = .init(url: uri.url!, method: .get)
         
+        print("request uri: \(uri.description)")
         print("request url: \(request.url.absoluteString)")
         
         let testExpectation = expectation(description: "Waiting for getting github user repos task...")
