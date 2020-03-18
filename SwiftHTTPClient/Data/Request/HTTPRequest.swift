@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol HTTPRequest {
+public protocol HTTPRequest: CustomDebugStringConvertible {
     associatedtype Response: HTTPResponse
     
     var url: URL { get }
@@ -18,6 +18,16 @@ public protocol HTTPRequest {
 }
 
 public extension HTTPRequest {
+    var debugDescription: String {
+        return """
+            [HTTP Request]
+              URI: \(self.url.absoluteString)
+              Method: \(self.method.description)
+              Header Fields: \(self.headerFields.count == 0 ? "empty" : "\n\(self.headerFields.map { "    \($0.name): \($0.value)" }.joined(separator: "\n"))")
+              Body: \(self.body.map { String(data: $0, encoding: .utf8) ?? $0.base64EncodedString() } ?? "empty")
+            """
+    }
+    
     func asAnyHTTPRequest() -> AnyHTTPRequest<Response> {
         return .init(self)
     }

@@ -25,9 +25,19 @@ public class HTTPClient: HTTPClientType {
     public func submit<Request: HTTPRequest>(_ request: Request) -> AnyPublisher<Request.Response, Error> {
         let urlRequest: URLRequest = self.createURLRequest(from: request)
         
+        #if DEBUG
+        print("\n\(request.debugDescription)\n")
+        #endif
+        
         return self.dataTaskPublisher(for: urlRequest)
             .tryMap {
-                try self.createResponse(Request.Response.self, from: $0)
+                let response = try self.createResponse(Request.Response.self, from: $0)
+                
+                #if DEBUG
+                print("\n\(response.debugDescription)\n")
+                #endif
+                
+                return response
             }
             .eraseToAnyPublisher()
     }
